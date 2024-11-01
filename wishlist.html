@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wishlist</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Menu -->
+  <header>
+    <nav class="top-menu">
+      <a href="index.html">Home</a>
+      <a href="wishlist.html">Wishlist</a>
+      <a href="order-history.html">Order History</a>
+      <a href="cart.html" id="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+    <h1>Your Wishlist</h1>
+  </header>
+
+  <main class="wishlist-main">
+    <ul id="wishlist-items" class="wishlist-items-list"></ul>
+    <p id="no-wishlist-items" class="empty-wishlist-message" style="display: none;">Your wishlist is empty.</p>
+  </main>
+
+  <script src="app.js"></script>
+  <script src="modal.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      updateCartCount(); // Update the cart count when the page loads
+
+      const wishlistItems = JSON.parse(localStorage.getItem('wishlist')) || [];
+      const wishlistElement = document.getElementById('wishlist-items');
+      const noWishlistElement = document.getElementById('no-wishlist-items');
+
+      if (wishlistItems.length > 0) {
+        wishlistItems.forEach(item => {
+          const li = document.createElement('li');
+          li.className = 'wishlist-item';
+          li.innerHTML = `
+            <a href="product${item.id}.html" class="wishlist-item-link">${item.name}</a>
+            <span class="wishlist-item-price">$${item.price.toFixed(2)}</span>
+            <button class="remove-from-wishlist">Remove</button>
+          `;
+
+          li.querySelector('.remove-from-wishlist').addEventListener('click', function() {
+            const updatedWishlist = wishlistItems.filter(wishItem => wishItem.id !== item.id);
+            localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
+            window.location.reload();
+          });
+
+          wishlistElement.appendChild(li);
+        });
+      } else {
+        noWishlistElement.style.display = 'block';
+      }
+    });
+  </script>
+
+</body>
+</html>

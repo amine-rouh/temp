@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Menu -->
+  <header>
+    <nav class="top-menu">
+      <a href="index.html">Home</a>
+      <a href="wishlist.html">Wishlist</a>
+      <a href="order-history.html">Order History</a>
+      <a href="cart.html" id="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+    <h1>Checkout</h1>
+  </header>
+
+  <main class="checkout-main">
+    <!-- Payment Option Selection -->
+    <div class="payment-selection">
+      <label for="payment-method">Choose a payment method:</label>
+      <select id="payment-method" name="payment-method">
+        <option value="none">Select...</option>
+        <option value="credit-card">Credit Card</option>
+        <option value="paypal">PayPal</option>
+      </select>
+    </div>
+
+    <!-- Credit Card Form (Initially hidden) -->
+    <form id="credit-card-form" class="payment-form" style="display: none;">
+      <label for="cc-number">Credit Card Number:</label>
+      <input type="text" id="cc-number" name="cc-number" required>
+      
+      <label for="cc-expiry">Expiry Date:</label>
+      <input type="text" id="cc-expiry" name="cc-expiry" placeholder="MM/YY" required>
+      
+      <label for="cc-cvv">CVV:</label>
+      <input type="text" id="cc-cvv" name="cc-cvv" required>
+
+      <button type="submit" id="pay-with-card" class="checkout-button disabled" disabled>Pay with Card</button>
+    </form>
+
+    <!-- PayPal Confirmation Modal (Initially hidden) -->
+    <div id="paypal-modal" class="paypal-modal" style="display: none;">
+      <p>Do you agree to proceed with PayPal?</p>
+      <button id="paypal-agree" class="confirm-button">Agree</button>
+      <button id="paypal-cancel" class="cancel-button">Cancel</button>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+  <script src="modal.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const paymentMethodSelect = document.getElementById('payment-method');
+      const creditCardForm = document.getElementById('credit-card-form');
+      const payWithCardButton = document.getElementById('pay-with-card');
+      const paypalModal = document.getElementById('paypal-modal');
+
+      // Toggle between payment forms
+      paymentMethodSelect.addEventListener('change', function () {
+        if (this.value === 'credit-card') {
+          creditCardForm.style.display = 'block';
+          paypalModal.style.display = 'none';
+        } else if (this.value === 'paypal') {
+          paypalModal.style.display = 'block';
+          creditCardForm.style.display = 'none';
+        } else {
+          creditCardForm.style.display = 'none';
+          paypalModal.style.display = 'none';
+        }
+      });
+
+      // Enable "Pay with Card" button if Credit Card fields are filled
+      creditCardForm.addEventListener('input', function () {
+        const ccNumber = document.getElementById('cc-number').value.trim();
+        const ccExpiry = document.getElementById('cc-expiry').value.trim();
+        const ccCVV = document.getElementById('cc-cvv').value.trim();
+        
+        payWithCardButton.disabled = !(ccNumber && ccExpiry && ccCVV);
+        payWithCardButton.classList.toggle('disabled', payWithCardButton.disabled);
+      });
+
+      // Save order for both payment methods
+      function saveOrderHistory() {
+        const cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+        const orderHistory = JSON.parse(localStorage.getItem('orderHistory')) || [];
+
+        const newOrder = {
+          date: new Date().toLocaleDateString(),
+          items: cart,
+          total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0),
+        };
+
+        orderHistory.push(newOrder);
+        localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
+        sessionStorage.setItem('cart', JSON.stringify([])); // Clear the cart after saving order
+      }
+
+      // Handle PayPal Modal Actions
+      document.getElementById('paypal-agree').addEventListener('click', function () {
+        saveOrderHistory();
+        showModal('Payment processed with PayPal!');
+        setTimeout(() => window.location.href = 'confirmation.html', 1500);
+      });
+
+      document.getElementById('paypal-cancel').addEventListener('click', function () {
+        paypalModal.style.display = 'none';
+        paymentMethodSelect.value = 'none';
+      });
+
+      // Handle Credit Card Payment Submission
+      creditCardForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        saveOrderHistory();
+        showModal('Payment processed with Credit Card!');
+        setTimeout(() => window.location.href = 'confirmation.html', 1500);
+      });
+    });
+  </script>
+
+</body>
+</html>

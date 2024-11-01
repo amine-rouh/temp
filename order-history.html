@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order History</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Menu -->
+  <header>
+    <nav class="top-menu">
+      <a href="index.html">Home</a>
+      <a href="wishlist.html">Wishlist</a>
+      <a href="order-history.html">Order History</a>
+      <a href="cart.html" id="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+    <h1>Your Order History</h1>
+  </header>
+
+  <main>
+    <ul id="order-history"></ul> <!-- Order history items will be dynamically inserted here -->
+    <p id="no-orders" style="display: none;">You have no previous orders.</p>
+  </main>
+
+  <script src="app.js"></script>
+  <script src="modal.js"></script>
+
+</body>
+</html>

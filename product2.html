@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product 2 Details</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Menu -->
+  <header>
+    <nav class="top-menu">
+      <a href="index.html">Home</a>
+      <a href="wishlist.html">Wishlist</a>
+      <a href="order-history.html">Order History</a>
+      <a href="cart.html" id="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="description-container">
+      <div class="description">
+        <img src="product2-image.jpg" alt="Product 2 Image">
+        <p>This is an amazing product with great features!</p>
+      </div>
+    </div>
+    <div class="product" data-id="2" data-price="29.99">
+      <h3>Product 2</h3>
+      <p>Price: $29.99</p>
+      <div class="button-container">
+        <button class="add-to-cart">Add to Cart</button>
+        <button class="add-to-wishlist">Add to Wishlist</button>
+      </div>
+    </div>
+    <section id="product-details">
+      <!-- Reviews Section -->
+      <h3>Customer Reviews</h3>
+      <ul id="reviews">
+        <li>⭐⭐⭐⭐⭐ - Excellent product! Highly recommend.</li>
+        <li>⭐⭐⭐⭐ - Good quality, but a bit pricey.</li>
+        <li>⭐⭐⭐ - It’s okay, but not as expected.</li>
+      </ul>
+    </section>
+    <section id="comment-section">
+      <h3>Ask a Question or Leave a Comment</h3>
+      <textarea id="comment-input" placeholder="Write your comment or question here..."></textarea>
+      <button id="submit-comment">Submit</button>
+      <ul id="comment-list"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+  <script src="modal.js"></script>
+</body>
+</html>

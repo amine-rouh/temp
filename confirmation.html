@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Menu -->
+  <header>
+    <nav class="top-menu">
+      <a href="index.html">Home</a>
+      <a href="wishlist.html">Wishlist</a>
+      <a href="order-history.html">Order History</a>
+      <a href="cart.html" id="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+    <h1>Order Confirmation</h1>
+  </header>
+
+  <main class="confirmation-main">
+    <div class="confirmation-message">
+      <p>Your order has been placed successfully! It will be shipped soon.</p>
+      <button class="return-home-button" onclick="window.location.href='index.html'">Return to Home</button>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+  <script src="modal.js"></script>
+
+</body>
+</html>

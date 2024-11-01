@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product List</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Menu -->
+  <header>
+    <nav class="top-menu">
+      <a href="index.html">Home</a>
+      <a href="wishlist.html">Wishlist</a>
+      <a href="order-history.html">Order History</a>
+      <a href="cart.html" id="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+    <h1>Our Products</h1>
+  </header>
+
+  <main>
+    <!-- Product Grid Section -->
+    <section id="products">
+      <div class="product" data-id="1" data-price="19.99">
+        <img src="product1-image.jpg" alt="Product 1 Image">
+        <h3><a href="product1.html">Product 1</a></h3>
+        <p>Price: $19.99</p>
+        <div class="button-container">
+          <button class="add-to-cart">Add to Cart</button>
+          <button class="add-to-wishlist">Add to Wishlist</button>
+        </div>
+      </div>
+      <div class="product" data-id="2" data-price="29.99">
+        <img src="product2-image.jpg" alt="Product 2 Image">
+        <h3><a href="product2.html">Product 2</a></h3>
+        <p>Price: $29.99</p>
+        <div class="button-container">
+          <button class="add-to-cart">Add to Cart</button>
+          <button class="add-to-wishlist">Add to Wishlist</button>
+        </div>
+      </div>
+      <div class="product" data-id="3" data-price="39.99">
+        <img src="product3-image.jpg" alt="Product 3 Image">
+        <h3><a href="product3.html">Product 3</a></h3>
+        <p>Price: $39.99</p>
+        <div class="button-container">
+          <button class="add-to-cart">Add to Cart</button>
+          <button class="add-to-wishlist">Add to Wishlist</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Include external JS files -->
+  <script src="app.js"></script>
+  <script src="modal.js"></script>
+
+</body>
+</html>
