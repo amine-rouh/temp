@@ -11,42 +11,42 @@
   <!-- Top Menu -->
   <header>
     <nav class="top-menu">
-      <a href="index.html">Home</a>
-      <a href="wishlist.html">Wishlist</a>
-      <a href="order-history.html">Order History</a>
-      <a href="cart.html" id="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
+      <a href="index.html" data-testid="nav-home">Home</a>
+      <a href="wishlist.html" data-testid="nav-wishlist">Wishlist</a>
+      <a href="order-history.html" data-testid="nav-order-history">Order History</a>
+      <a href="cart.html" id="cart-link" data-testid="nav-cart">🛒 Cart (<span id="cart-count" data-testid="cart-count">0</span>)</a>
     </nav>
   </header>
 
   <main>
-    <div class="description-container">
-      <div class="description">
-        <img src="product1-image.jpg" alt="Product 1 Image">
-        <p>This is an amazing product with great features!</p>
+    <div class="description-container" data-testid="description-container">
+      <div class="description" data-testid="product-description">
+        <img src="product1-image.jpg" alt="Product 1 Image" data-testid="product-image">
+        <p data-testid="product-description-text">This is an amazing product with great features!</p>
       </div>
     </div>
-    <div class="product" data-id="1" data-price="19.99">
-      <h3>Product 1</h3>
-      <p>Price: $19.99</p>
-      <div class="button-container">
-        <button class="add-to-cart">Add to Cart</button>
-        <button class="add-to-wishlist">Add to Wishlist</button>
+    <div class="product" data-id="1" data-price="19.99" data-testid="product-details">
+      <h3 data-testid="product-title">Product 1</h3>
+      <p data-testid="product-price">Price: $19.99</p>
+      <div class="button-container" data-testid="button-container">
+        <button class="add-to-cart" data-testid="add-to-cart">Add to Cart</button>
+        <button class="add-to-wishlist" data-testid="add-to-wishlist">Add to Wishlist</button>
       </div>
     </div>
-    <section id="product-details">
+    <section id="product-details" data-testid="product-details-section">
       <!-- Reviews Section -->
-      <h3>Customer Reviews</h3>
-      <ul id="reviews">
-        <li>⭐⭐⭐⭐⭐ - Excellent product! Highly recommend.</li>
-        <li>⭐⭐⭐⭐ - Good quality, but a bit pricey.</li>
-        <li>⭐⭐⭐ - It’s okay, but not as expected.</li>
+      <h3 data-testid="reviews-title">Customer Reviews</h3>
+      <ul id="reviews" data-testid="reviews-list">
+        <li data-testid="review-1">⭐⭐⭐⭐⭐ - Excellent product! Highly recommend.</li>
+        <li data-testid="review-2">⭐⭐⭐⭐ - Good quality, but a bit pricey.</li>
+        <li data-testid="review-3">⭐⭐⭐ - It’s okay, but not as expected.</li>
       </ul>
     </section>
-    <section id="comment-section">
-      <h3>Ask a Question or Leave a Comment</h3>
-      <textarea id="comment-input" placeholder="Write your comment or question here..."></textarea>
-      <button id="submit-comment">Submit</button>
-      <ul id="comment-list"></ul>
+    <section id="comment-section" data-testid="comment-section">
+      <h3 data-testid="comment-title">Ask a Question or Leave a Comment</h3>
+      <textarea id="comment-input" placeholder="Write your comment or question here..." data-testid="comment-input"></textarea>
+      <button id="submit-comment" data-testid="submit-comment">Submit</button>
+      <ul id="comment-list" data-testid="comment-list"></ul>
     </section>
   </main>
 

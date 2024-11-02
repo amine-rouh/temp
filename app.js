@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.style.display = 'none';
         modal.classList.remove('fade-out');
       }, 1000);
-    }, 2000);
+    }, 3000);
   }
 
   // Handle adding items to the cart
@@ -166,13 +166,28 @@ document.addEventListener('DOMContentLoaded', function() {
       localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
       sessionStorage.setItem('cart', JSON.stringify([])); // Clear the cart
       showModal("Payment processed successfully!");
-
+      // Set a flag in sessionStorage to indicate a successful checkout
+  sessionStorage.setItem('fromCheckout', 'true')
       setTimeout(() => {
         window.location.href = 'confirmation.html';
       }, 3000);
     });
   }
+// Function to check if the cart is empty and redirect if necessary
+function checkCartForAccess() {
+  const cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+  if (cart.length === 0) {
+    showModal("Your cart is empty. Add a product to proceed.");
+    setTimeout(() => {
+      window.location.href = 'index.html';
+    }, 3000); // Redirect after showing the message
+  }
+}
 
+// Apply the check to specific pages
+if (window.location.pathname.includes('checkout.html')) {
+  checkCartForAccess();
+}
   // Display order history on order-history.html
   const orderHistoryList = document.getElementById('order-history');
   if (orderHistoryList) {

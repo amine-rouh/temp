@@ -8,21 +8,21 @@
 </head>
 <body>
 
-  <!-- Top Menu -->
-  <header>
-    <nav class="top-menu">
-      <a href="index.html">Home</a>
-      <a href="wishlist.html">Wishlist</a>
-      <a href="order-history.html">Order History</a>
-      <a href="cart.html" id="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
-    </nav>
-    <h1>Your Wishlist</h1>
-  </header>
+ <!-- Top Menu -->
+ <header>
+  <nav class="top-menu">
+    <a href="index.html" data-testid="nav-home">Home</a>
+    <a href="wishlist.html" data-testid="nav-wishlist">Wishlist</a>
+    <a href="order-history.html" data-testid="nav-order-history">Order History</a>
+    <a href="cart.html" id="cart-link" data-testid="nav-cart">🛒 Cart (<span id="cart-count" data-testid="cart-count">0</span>)</a>
+  </nav>
+  <h1 data-testid="header-title">Your Wishlist</h1>
+</header>
 
-  <main class="wishlist-main">
-    <ul id="wishlist-items" class="wishlist-items-list"></ul>
-    <p id="no-wishlist-items" class="empty-wishlist-message" style="display: none;">Your wishlist is empty.</p>
-  </main>
+<main class="wishlist-main" data-testid="wishlist-main">
+  <ul id="wishlist-items" class="wishlist-items-list" data-testid="wishlist-items-list"></ul>
+  <p id="no-wishlist-items" class="empty-wishlist-message" style="display: none;" data-testid="no-wishlist-message">Your wishlist is empty.</p>
+</main>
 
   <script src="app.js"></script>
   <script src="modal.js"></script>

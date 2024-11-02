@@ -11,42 +11,42 @@
   <!-- Top Menu -->
   <header>
     <nav class="top-menu">
-      <a href="index.html">Home</a>
-      <a href="wishlist.html">Wishlist</a>
-      <a href="order-history.html">Order History</a>
-      <a href="cart.html" id="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
+      <a href="index.html" data-testid="nav-home">Home</a>
+      <a href="wishlist.html" data-testid="nav-wishlist">Wishlist</a>
+      <a href="order-history.html" data-testid="nav-order-history">Order History</a>
+      <a href="cart.html" id="cart-link" data-testid="nav-cart">🛒 Cart (<span id="cart-count" data-testid="cart-count">0</span>)</a>
     </nav>
-    <h1>Our Products</h1>
+    <h1 data-testid="header-title">Our Products</h1>
   </header>
 
   <main>
     <!-- Product Grid Section -->
-    <section id="products">
-      <div class="product" data-id="1" data-price="19.99">
-        <img src="product1-image.jpg" alt="Product 1 Image">
-        <h3><a href="product1.html">Product 1</a></h3>
-        <p>Price: $19.99</p>
-        <div class="button-container">
-          <button class="add-to-cart">Add to Cart</button>
-          <button class="add-to-wishlist">Add to Wishlist</button>
+    <section id="products" data-testid="product-section">
+      <div class="product" data-id="1" data-price="19.99" data-testid="product-item-1">
+        <img src="product1-image.jpg" alt="Product 1 Image" data-testid="product-image-1">
+        <h3><a href="product1.html" data-testid="product-link-1">Product 1</a></h3>
+        <p data-testid="product-price-1">Price: $19.99</p>
+        <div class="button-container" data-testid="button-container-1">
+          <button class="add-to-cart" data-testid="add-to-cart-1">Add to Cart</button>
+          <button class="add-to-wishlist" data-testid="add-to-wishlist-1">Add to Wishlist</button>
         </div>
       </div>
-      <div class="product" data-id="2" data-price="29.99">
-        <img src="product2-image.jpg" alt="Product 2 Image">
-        <h3><a href="product2.html">Product 2</a></h3>
-        <p>Price: $29.99</p>
-        <div class="button-container">
-          <button class="add-to-cart">Add to Cart</button>
-          <button class="add-to-wishlist">Add to Wishlist</button>
+      <div class="product" data-id="2" data-price="29.99" data-testid="product-item-2">
+        <img src="product2-image.jpg" alt="Product 2 Image" data-testid="product-image-2">
+        <h3><a href="product2.html" data-testid="product-link-2">Product 2</a></h3>
+        <p data-testid="product-price-2">Price: $29.99</p>
+        <div class="button-container" data-testid="button-container-2">
+          <button class="add-to-cart" data-testid="add-to-cart-2">Add to Cart</button>
+          <button class="add-to-wishlist" data-testid="add-to-wishlist-2">Add to Wishlist</button>
         </div>
       </div>
-      <div class="product" data-id="3" data-price="39.99">
-        <img src="product3-image.jpg" alt="Product 3 Image">
-        <h3><a href="product3.html">Product 3</a></h3>
-        <p>Price: $39.99</p>
-        <div class="button-container">
-          <button class="add-to-cart">Add to Cart</button>
-          <button class="add-to-wishlist">Add to Wishlist</button>
+      <div class="product" data-id="3" data-price="39.99" data-testid="product-item-3">
+        <img src="product3-image.jpg" alt="Product 3 Image" data-testid="product-image-3">
+        <h3><a href="product3.html" data-testid="product-link-3">Product 3</a></h3>
+        <p data-testid="product-price-3">Price: $39.99</p>
+        <div class="button-container" data-testid="button-container-3">
+          <button class="add-to-cart" data-testid="add-to-cart-3">Add to Cart</button>
+          <button class="add-to-wishlist" data-testid="add-to-wishlist-3">Add to Wishlist</button>
         </div>
       </div>
     </section>

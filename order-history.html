@@ -11,17 +11,17 @@
   <!-- Top Menu -->
   <header>
     <nav class="top-menu">
-      <a href="index.html">Home</a>
-      <a href="wishlist.html">Wishlist</a>
-      <a href="order-history.html">Order History</a>
-      <a href="cart.html" id="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
+      <a href="index.html" data-testid="nav-home">Home</a>
+      <a href="wishlist.html" data-testid="nav-wishlist">Wishlist</a>
+      <a href="order-history.html" data-testid="nav-order-history">Order History</a>
+      <a href="cart.html" id="cart-link" data-testid="nav-cart">🛒 Cart (<span id="cart-count" data-testid="cart-count">0</span>)</a>
     </nav>
-    <h1>Your Order History</h1>
+    <h1 data-testid="header-title">Your Order History</h1>
   </header>
 
   <main>
-    <ul id="order-history"></ul> <!-- Order history items will be dynamically inserted here -->
-    <p id="no-orders" style="display: none;">You have no previous orders.</p>
+    <ul id="order-history" data-testid="order-history-list"></ul> <!-- Order history items will be dynamically inserted here -->
+    <p id="no-orders" style="display: none;" data-testid="no-orders-message">You have no previous orders.</p>
   </main>
 
   <script src="app.js"></script>

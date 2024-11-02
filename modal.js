@@ -18,7 +18,7 @@ function showModal(message) {
   document.body.insertAdjacentHTML('beforeend', `
     <div id="custom-modal" class="modal" style="display: none;">
       <div class="modal-content">
-        <p id="modal-message"></p>
+        <p id="modal-message" data-testid="modal-messag"></p>
       </div>
     </div>
   `);

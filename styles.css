@@ -500,3 +500,10 @@ button.disabled {
   margin-top: 20px;
 }
 
+.input-error {
+  border-color: red;
+}
+
+.input-error::placeholder {
+  color: red;
+}

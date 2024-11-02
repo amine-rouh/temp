@@ -11,23 +11,40 @@
   <!-- Top Menu -->
   <header>
     <nav class="top-menu">
-      <a href="index.html">Home</a>
-      <a href="wishlist.html">Wishlist</a>
-      <a href="order-history.html">Order History</a>
-      <a href="cart.html" id="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
+      <a href="index.html" data-testid="nav-home">Home</a>
+      <a href="wishlist.html" data-testid="nav-wishlist">Wishlist</a>
+      <a href="order-history.html" data-testid="nav-order-history">Order History</a>
+      <a href="cart.html" id="cart-link" data-testid="nav-cart">🛒 Cart (<span id="cart-count" data-testid="cart-count">0</span>)</a>
     </nav>
-    <h1>Order Confirmation</h1>
+    <h1 data-testid="header-title">Order Confirmation</h1>
   </header>
 
-  <main class="confirmation-main">
-    <div class="confirmation-message">
-      <p>Your order has been placed successfully! It will be shipped soon.</p>
-      <button class="return-home-button" onclick="window.location.href='index.html'">Return to Home</button>
+  <main class="confirmation-main" data-testid="confirmation-main">
+    <div class="confirmation-message" data-testid="confirmation-message">
+      <p data-testid="confirmation-text">Your order has been placed successfully! It will be shipped soon.</p>
+      <button class="return-home-button" onclick="window.location.href='index.html'" data-testid="return-home-button">Return to Home</button>
     </div>
   </main>
 
   <script src="app.js"></script>
   <script src="modal.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  // Check if the user came from the checkout page
+  const fromCheckout = sessionStorage.getItem('fromCheckout');
 
+  if (fromCheckout !== 'true') {
+    // User accessed the URL directly, show a message or redirect them
+    showModal("Access denied. Complete the checkout process to view this page.");
+    setTimeout(() => {
+      window.location.href = 'index.html'; // Redirect to home or another page
+    }, 2000);
+  } else {
+    // User came from the checkout page, clear the flag
+    sessionStorage.removeItem('fromCheckout');
+  }
+});
+
+  </script>
 </body>
 </html>
