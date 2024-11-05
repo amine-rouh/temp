@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Booking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Travel Booking</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="bookings.html">Bookings</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="search-bar">
+            <h2>Find Your Next Stay</h2>
+            <form id="searchForm">
+                <div id="errorContainer" class="error-message" data-testid="error-container"></div>
+                <input type="text" id="destination" data-testid="destination-input" placeholder="Destination">
+                <input type="date" id="checkin" data-testid="checkin-date">
+                <input type="date" id="checkout" data-testid="checkout-date">
+                <input type="number" id="guests" data-testid="guests-input" placeholder="Guests">
+                <button type="submit" data-testid="search-button">Search</button>
+            </form> 
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <script src="data.js"></script>
+</body>
+</html>

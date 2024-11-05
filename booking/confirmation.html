@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Travel Booking</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="bookings.html">Bookings</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2 data-testid="confirmation-title">Booking Confirmed!</h2>
+        <p data-testid="confirmation-message">Your booking has been successfully completed.</p>
+        <p>Thank you for choosing our service!</p>
+        <button onclick="returnToHome()" data-testid="return-home-button">Return to Home</button>
+    </main>
+    <script src="confirmation.js"></script>
+    <script src="data.js"></script>
+</body>
+</html>

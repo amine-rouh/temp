@@ -1,0 +1,191 @@
+/* General Reset and Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Modern and clean font */
+    background-color: #f2f6fa; /* Alice Blue for a clean background */
+    color: #666666; /* Granite Gray for text */
+    line-height: 1.6;
+}
+
+header {
+    background-color: #003580; /* Catalina Blue for header */
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #feba02; /* Selective Yellow for hover effect */
+}
+
+main {
+    padding: 80px 20px 20px; /* Add top padding to account for the fixed header */
+}
+
+/* Search Bar */
+.search-bar {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.search-bar h2 {
+    font-size: 32px;
+    color: #003580; /* Catalina Blue for the heading */
+    margin-bottom: 20px;
+}
+
+.search-bar form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+input, button {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: all 0.3s;
+}
+
+input:focus {
+    border-color: #009fe3; /* Vivid Cerulean for focus */
+    box-shadow: 0 0 5px rgba(0, 159, 227, 0.2);
+}
+
+button {
+    background-color: #feba02; /* Selective Yellow for primary buttons */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #e69a00; /* Darker shade for hover */
+}
+
+/* Error Message */
+.error-message {
+    display: none;
+    color: red;
+    background-color: #ffe6e6;
+    border: 1px solid red;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Card-Based Design for Properties and Bookings */
+.property-card, .booking-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+}
+
+.property-card:hover, .booking-item:hover {
+    transform: translateY(-5px);
+}
+
+.property-card img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Filters and Sorting Section */
+.filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.filters select {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+    width: 200px;
+}
+
+.filters select:focus {
+    border-color: #009fe3; /* Vivid Cerulean for focus */
+    box-shadow: 0 0 5px rgba(0, 159, 227, 0.2);
+}
+
+.filters label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.property-list {
+    margin-top: 20px; /* Additional margin to separate from filters */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-bar form {
+        max-width: 100%;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .filters select {
+        width: 100%; /* Full width on smaller screens */
+    }
+}
